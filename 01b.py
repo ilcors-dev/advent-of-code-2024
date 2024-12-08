@@ -34,9 +34,6 @@ def process():
     safe_reports = 0
 
     for report in reports:
-        safe_reports += 1 if is_safe(report) else 0
-
-    for report in reports:
         safe_reports += 1 if is_safe(report) or any(is_safe(report[:i] + report[i + 1:]) for i in range(len(report))) else 0 # brute forcing to the win :(
 
     return safe_reports
